@@ -27,7 +27,7 @@ SECRET_KEY = '3#h1+peaqno=-o8q$zcsejt##_9lgggvsnhrl2!p)6vi6urw-6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "nina-django-todo-1.herokuapp.com"]
 
 
 # Application definition
