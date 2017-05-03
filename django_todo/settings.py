@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import datetime
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -100,6 +101,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.parse("mysql://ba10b44369fa1a:1cecdc0e@eu-cdbr-west-01.cleardb.com/heroku_035c224ee6eca02?")
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
