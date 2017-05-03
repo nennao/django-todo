@@ -27,7 +27,7 @@ SECRET_KEY = '3#h1+peaqno=-o8q$zcsejt##_9lgggvsnhrl2!p)6vi6urw-6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "nina-django-todo-1.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nina-django-todo-1.herokuapp.com"]
 
 
 # Application definition
@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_docs',
+    'corsheaders',
     'todo.apps.TodoConfig',
+    'accounts',
 ]
 
 REST_FRAMEWORK = {
@@ -67,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'django_todo.urls'
@@ -135,6 +139,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
